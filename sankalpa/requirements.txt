@@ -1,0 +1,5 @@
+langgraph
+streamlit
+pandas
+pydantic
+typing-extensions
