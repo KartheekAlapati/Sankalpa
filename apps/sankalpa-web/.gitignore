@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env*
+!.env.example
+test-results/
+playwright-report/
+*.log
+# The legacy Python root ignores every directory named lib.
+!src/lib/
+!src/lib/**
