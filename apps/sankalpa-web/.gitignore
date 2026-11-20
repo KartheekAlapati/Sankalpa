@@ -5,6 +5,9 @@ dist/
 test-results/
 playwright-report/
 *.log
+.phase1-dist/
+.auth-dist/
+.local-db/
 # The legacy Python root ignores every directory named lib.
 !src/lib/
 !src/lib/**

@@ -3,14 +3,21 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "engines": { "node": ">=24.0.0" },
+  "engines": {
+    "node": ">=24.0.0"
+  },
   "scripts": {
+    "generate:learning-manifest": "node scripts/generate-learning-manifest.mjs",
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
     "build": "npm run typecheck && vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "test:smoke": "playwright test"
+    "test:smoke": "vite build --mode phase1-test && playwright test",
+    "test:auth": "vite build --mode auth-test && playwright test --config playwright.auth.config.ts",
+    "test:learning": "vite build --mode phase1-test --outDir .phase1-dist && playwright test --config playwright.learning.config.ts",
+    "test:db": "node scripts/test-database.mjs",
+    "test": "npm run test:smoke && npm run test:auth"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.117.3",
@@ -28,10 +35,13 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.2",
+    "embedded-postgres": "17.10.0-beta.17",
     "eslint": "10.12.0",
     "eslint-plugin-react-hooks": "7.1.1",
     "eslint-plugin-react-refresh": "0.5.7",
     "globals": "17.13.0",
+    "pg": "8.23.1",
+    "supabase": "2.121.0",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3",
     "typescript-eslint": "8.71.2",

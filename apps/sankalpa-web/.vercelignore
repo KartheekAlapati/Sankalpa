@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.phase1-dist/
+.auth-dist/
+test-results/
+playwright-report/
+.local-db/
+tests/
+playwright*.ts
+scripts/
+supabase/
+MILESTONE_*.md
+RELEASE_REPORT.md
+.env*
+*.log
